@@ -4,11 +4,7 @@ Data Pipeline for Power Grid Data and analysis
 
 This project demonstrates an end-to-end data engineering pipeline, moving raw energy consumption data from a cloud storage bucket into a data warehouse, followed by advanced pattern analysis and visualization.
 ## Architecture
-```mermaid
-graph LR
-    S3[Amazon S3] -->|Raw Data| RS[(Amazon Redshift)]
-    RS -->|Transformed| BI[Power BI]
-    style RS fill:#f96,stroke:#333,stroke-width:2px 
+
 ## 1. Project Objective
 The goal of this project was to ingest, model, and visualize electricity load data to identify consumption patterns, peak usage times, and load stability. This project serves as a demonstration of cloud-native data architecture and business intelligence best practices.
 
@@ -45,3 +41,10 @@ By applying binned histograms to the load data, the pipeline uncovers bimodal di
 * **SQL:** PostgreSQL (Redshift syntax)
 * **Visualization:** Power BI (DAX, Star Schema Modeling)
 * **Engineering:** ETL Pipeline Design, FinOps Optimization
+```mermaid
+graph LR
+    A[Amazon S3] -->|Raw Data| B(Amazon Redshift)
+    B -->|Query/Import| C[Power BI]
+    
+    style B fill:#FF9900,stroke:#333,stroke-width:2px
+    style C fill:#F2C811,stroke:#333,stroke-width:2px
