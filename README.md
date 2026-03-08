@@ -42,6 +42,3 @@ By applying binned histograms to the load data, the pipeline uncovers bimodal di
 * **SQL:** PostgreSQL (Redshift syntax)
 * **Visualization:** Power BI (DAX, Star Schema Modeling)
 * **Engineering:** ETL Pipeline Design, FinOps Optimization
-
----
-*This project was completed as part of a cloud data engineering demonstration.*
