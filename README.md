@@ -10,7 +10,7 @@ The goal of this project was to ingest, model, and visualize electricity load da
 
 ## 2. Architecture Overview
 The pipeline follows a modern ELT (Extract, Load, Transform) pattern:
-* **Storage:** Raw electricity load files are stored in **Amazon S3**.
+* **Storage:** Raw electricity load files extracted using EIA API key, then pushed and stored via cli to **Amazon S3**.
 * **Warehouse:** Data is loaded and processed in **Amazon Redshift**, utilizing a Star Schema for optimized analytical queries.
 * **Visualization:** **Power BI** connects to the Redshift warehouse to provide interactive analysis and trend discovery.
 
