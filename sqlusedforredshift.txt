@@ -1,0 +1,22 @@
+1. Create Dimension: Region
+CREATE TABLE dim_region (
+    region_id INT PRIMARY KEY,
+    respondent VARCHAR(100),
+    respondent_name VARCHAR(255)
+);
+
+2. Create Dimension: Time
+CREATE TABLE dim_time (
+    time_id INT PRIMARY KEY,
+    period TIMESTAMP,
+    month INT,
+    year INT
+);
+
+3. Create Fact Table
+CREATE TABLE fact_energy_load (
+    load_id INT IDENTITY(1,1) PRIMARY KEY,
+    time_id INT REFERENCES dim_time(time_id),
+    region_id INT REFERENCES dim_region(region_id),
+    megawatt_hours FLOAT
+);
