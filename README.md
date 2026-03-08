@@ -4,7 +4,10 @@ Data Pipeline for Power Grid Data and analysis
 
 This project demonstrates an end-to-end data engineering pipeline, moving raw energy consumption data from a cloud storage bucket into a data warehouse, followed by advanced pattern analysis and visualization.
 
-
+graph LR
+    A[S3 Bucket] -->|Raw Data| B(AWS Redshift)
+    B -->|Transformed| C[Power BI]
+    style B fill:#f96,stroke:#333,stroke-width:2px
 
 ## 1. Project Objective
 The goal of this project was to ingest, model, and visualize electricity load data to identify consumption patterns, peak usage times, and load stability. This project serves as a demonstration of cloud-native data architecture and business intelligence best practices.
