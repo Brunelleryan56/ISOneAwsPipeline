@@ -19,4 +19,26 @@ CREATE TABLE fact_energy_load (
     time_id INT REFERENCES dim_time(time_id),
     region_id INT REFERENCES dim_region(region_id),
     megawatt_hours FLOAT
+
 );
+
+
+Pattern for loading data from S3 into your staging or fact tables
+COPY fact_energy_load 
+FROM 's3://bucket/path-to-data/'
+IAM_ROLE ''
+FORMAT AS CSV
+IGNOREHEADER 1;
+
+Checking record counts to ensure the COPY command worked
+SELECT COUNT(*) FROM fact_energy_load;
+
+Testing Star Schema join (this is essentially what Power BI is doing under the hood)
+SELECT 
+    t.period, 
+    r.respondent_name, 
+    f.megawatt_hours
+FROM fact_energy_load f
+JOIN dim_time t ON f.time_id = t.time_id
+JOIN dim_region r ON f.region_id = r.region_id
+LIMIT 10;
